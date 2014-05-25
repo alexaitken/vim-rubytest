@@ -63,12 +63,12 @@ function s:ExecTest(cmd)
     let s:oldefm = &efm
     let &efm = s:efm . s:efm_backtrace . ',' . s:efm_ruby . ',' . s:oldefm . ',%-G%.%#'
 
-    cex system(cmd)
+    cex cmd
     cw
 
     let &efm = s:oldefm
   else
-    exe "!echo '" . cmd . "' && " . cmd
+    exe cmd
   endif
 endfunction
 
